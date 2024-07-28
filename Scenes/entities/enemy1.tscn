@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://disjg5bxqpiu5"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/enemy_1.gd" id="1_l85fk"]
+[ext_resource type="Texture2D" uid="uid://dibwwunu842u" path="res://Assets/Cute_Fantasy_Free/Enemies/Skeleton.png" id="2_aibnd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryyru"]
+atlas = ExtResource("2_aibnd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0hhm"]
+atlas = ExtResource("2_aibnd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xhp"]
+atlas = ExtResource("2_aibnd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfxg5"]
+atlas = ExtResource("2_aibnd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seo6b"]
+atlas = ExtResource("2_aibnd")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkrtd"]
+atlas = ExtResource("2_aibnd")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_arwi7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryyru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0hhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfxg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seo6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkrtd")
+}],
+"loop": true,
+"name": &"idleDown",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56yj2"]
+size = Vector2(13, 19)
+
+[node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "collisionBox")]
+texture_filter = 1
+script = ExtResource("1_l85fk")
+sprite = NodePath("AnimatedSprite2D")
+collisionBox = NodePath("CollisionShape2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_arwi7")
+animation = &"idleDown"
+frame = 2
+frame_progress = 0.86174
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_56yj2")
