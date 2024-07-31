@@ -151,13 +151,13 @@ tile_set = SubResource("TileSet_g2bhi")
 
 [node name="Skeleton" parent="WorldEnvironment" instance=ExtResource("2_tig7y")]
 position = Vector2(158, 63)
-canMove = true
+entity_name = "Skeleton"
 
 [node name="Player" parent="WorldEnvironment" instance=ExtResource("2_cpext")]
 position = Vector2(73, 56)
 collision_mask = 2
 motion_mode = 1
-entityName = "Player"
-canMove = true
-controllable = true
+entity_name = "Player"
+can_move = true
+speed = 200
 isAnimated = true
